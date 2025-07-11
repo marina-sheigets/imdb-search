@@ -4,12 +4,15 @@ import { fetchMovies } from "../../redux/thunks/fetchMovies";
 import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
 import { setUrlParam } from "../../utils/setURLParam";
 import InputComponent from "../InputComponent/InputComponent";
+import { getURLParam } from "../../utils/getURLParam";
 
 function ReleaseYearInput() {
   const dispatch = useAppDispatch();
   const currentYear = new Date().getFullYear();
 
-  const [selectedYear, setSelectedYear] = useState(currentYear.toString());
+  const initialYear =
+    getURLParam("primary_release_year") || currentYear.toString();
+  const [selectedYear, setSelectedYear] = useState(initialYear);
 
   const handleChangeReleaseYear = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedYear(e.target.value);
