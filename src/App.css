@@ -2,3 +2,9 @@
  
 }
 
+.app {
+  background: var(--background-primary-gradient);
+  min-height: 100vh;
+  padding: 2rem;
+}
+

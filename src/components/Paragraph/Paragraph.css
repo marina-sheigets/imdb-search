@@ -1,0 +1,27 @@
+.paragraph {
+  margin: 0;
+}
+
+.paragraph.small {
+  font-size: 0.8rem;
+}
+
+.paragraph.medium {
+  font-size: 1rem;
+}
+
+.paragraph.large {
+  font-size: 1.2rem;
+}
+
+.paragraph.primary {
+  color: var(--primary-color);
+}
+
+.paragraph.secondary {
+  color: var(--secondary-color);
+}
+
+.paragraph.tertiary {
+  color: var(--tertiary-color);
+}
