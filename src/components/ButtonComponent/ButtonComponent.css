@@ -1,0 +1,38 @@
+.button-component {
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+.button-component.text {
+    background-color: transparent;
+    color: var(--tertiary-color);
+}
+
+.button-component.hover {
+    background-color: transparent;
+    transition: color 0.3s ease;
+    color: var(--tertiary-color-hover);
+}
+
+.button-component.contained {
+    background-color: var(--tertiary-color);
+    color: white;
+}
+
+.button-component.contained:hover {
+    background-color: var(--tertiary-color-hover);
+}
+
+.button-component.small {
+    font-size: 0.8rem;
+}
+
+.button-component.medium {
+    font-size: 1rem;
+}
+
+.button-component.large {
+    font-size: 1.2rem;
+}
