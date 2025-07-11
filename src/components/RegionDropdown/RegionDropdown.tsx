@@ -8,6 +8,7 @@ import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { setUrlParam } from "../../utils/setURLParam";
 import { fetchMovies } from "../../redux/thunks/fetchMovies";
 import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
+import { getURLParam } from "../../utils/getURLParam";
 
 function RegionDropdown() {
   const dispatch = useAppDispatch();
@@ -18,7 +19,15 @@ function RegionDropdown() {
   const [selectedRegion, setSelectedRegion] = useState("");
 
   const setInitialOption = () => {
+    const paramRegion = getURLParam("region");
+
+    if (paramRegion) {
+      setSelectedRegion(paramRegion);
+      return;
+    }
+
     const USA = items.find((item) => item.iso_3166_1 === "US");
+
     if (!USA) {
       return;
     }
