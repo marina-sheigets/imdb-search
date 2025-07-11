@@ -2,6 +2,7 @@ import CheckboxComponent from "../CheckboxComponent/CheckboxComponent";
 import DropdownComponent from "../DropdownComponent/DropdownComponent";
 import InputComponent from "../InputComponent/InputComponent";
 import LanguageDropdown from "../LanguageDropdown/LanguageDropdown";
+import PageInput from "../PageInput/PageInput";
 import ReleaseYearInput from "../ReleaseYearInput/ReleaseYearInput";
 import "./FiltersContent.css";
 
@@ -10,16 +11,8 @@ function FiltersContent() {
     <div className="filters-content">
       <LanguageDropdown />
       <ReleaseYearInput />
-
-      {/* <InputComponent
-        value={""}
-        onChange={() => {}}
-        label="Year"
-        placeholder={`e.g. ${currentYear}`}
-        type="number"
-        min={1900}
-        max={currentYear}
-      />
+      <PageInput />
+      {/*
       <DropdownComponent
         options={[
           "North America",
