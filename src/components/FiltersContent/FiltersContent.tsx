@@ -4,6 +4,7 @@ import InputComponent from "../InputComponent/InputComponent";
 import LanguageDropdown from "../LanguageDropdown/LanguageDropdown";
 import PageInput from "../PageInput/PageInput";
 import ReleaseYearInput from "../ReleaseYearInput/ReleaseYearInput";
+import YearInput from "../YearInput/YearInput";
 import "./FiltersContent.css";
 
 function FiltersContent() {
@@ -11,6 +12,7 @@ function FiltersContent() {
     <div className="filters-content">
       <LanguageDropdown />
       <ReleaseYearInput />
+      <YearInput />
       <PageInput />
       {/*
       <DropdownComponent
