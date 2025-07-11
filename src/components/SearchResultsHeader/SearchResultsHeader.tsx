@@ -1,13 +1,10 @@
+import { useAppSelector } from "../../hooks/useAppSelector";
+import { getMovies } from "../../redux/selectors/getMovies";
 import Heading from "../Heading/Heading";
 import "./SearchResultsHeader.css";
 
-type SearchResultsHeaderProps = {
-  amountMoviesFound: number;
-};
-
-function SearchResultsHeader({
-  amountMoviesFound,
-}: Readonly<SearchResultsHeaderProps>) {
+function SearchResultsHeader() {
+  const {totalResults} = useAppSelector(getMovies);
   return (
     <div className="search-results-header">
       <Heading
@@ -17,7 +14,7 @@ function SearchResultsHeader({
         align="left"
       />
       <Heading
-        text={`${amountMoviesFound} movies found`}
+        text={`${totalResults} movies found`}
         variant="h3"
         color="tertiary"
         align="right"
