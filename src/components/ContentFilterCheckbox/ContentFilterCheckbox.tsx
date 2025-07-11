@@ -4,10 +4,14 @@ import { setUrlParam } from "../../utils/setURLParam";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { fetchMovies } from "../../redux/thunks/fetchMovies";
 import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
+import { getURLParam } from "../../utils/getURLParam";
 
 function ContentFilterCheckbox() {
   const dispatch = useAppDispatch();
-  const [selectedValue, setSelectedValue] = useState(false);
+
+  const initialValue = getURLParam("include_adult") === "true";
+
+  const [selectedValue, setSelectedValue] = useState(initialValue);
 
   const hanldeChangeSleectedValue = (
     e: React.ChangeEvent<HTMLInputElement>
