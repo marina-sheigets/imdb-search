@@ -9,6 +9,7 @@ function SearchResultsComponent() {
   return (
     <SectionComponent>
       <SearchResultsHeader amountMoviesFound={amountMoviesFound} />
+      <PaginationComponent />
       <MoviesListComponent />
       <PaginationComponent />
     </SectionComponent>
