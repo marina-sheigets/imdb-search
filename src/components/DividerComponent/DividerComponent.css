@@ -1,5 +1,6 @@
-hr {
-    border: none;
-    border-top: 1px solid var(--border-color);
+.divider-component {
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
     margin: 1rem 0;
 }

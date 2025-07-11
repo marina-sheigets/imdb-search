@@ -2,7 +2,7 @@ import "./DividerComponent.css"
 
 function DividerComponent() {
   return (
-    <hr />
+    <div className="divider-component" />
   )
 }
 
