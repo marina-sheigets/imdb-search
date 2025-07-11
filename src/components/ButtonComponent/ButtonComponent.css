@@ -19,6 +19,8 @@
 .button-component.contained {
     background-color: var(--tertiary-color);
     color: white;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .button-component.contained:hover {
