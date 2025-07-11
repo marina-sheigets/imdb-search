@@ -6,6 +6,7 @@ type HeadingProps = {
   color?: "primary" | "secondary" | "tertiary";
   text: string;
   shadow?: boolean;
+  align?: "left" | "center" | "right";
 };
 
 const Heading: React.FC<HeadingProps> = ({
@@ -13,11 +14,12 @@ const Heading: React.FC<HeadingProps> = ({
   color = "primary",
   shadow = false,
   text,
+  align = "center",
 }) => {
   const HeadingTag = variant;
 
   return (
-    <HeadingTag className={`${color} ${shadow ? "shadow" : ""}`}>
+    <HeadingTag className={`${color} ${shadow ? "shadow" : ""} ${align}`}>
       {text}
     </HeadingTag>
   );

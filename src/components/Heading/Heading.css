@@ -28,3 +28,15 @@ h3 {
 .shadow {
     text-shadow: var(--heading-shadow);
 }
+
+.left {
+  margin-right: auto;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.right {
+  margin-left: auto;
+}
