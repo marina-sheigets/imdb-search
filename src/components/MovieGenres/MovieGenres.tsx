@@ -2,14 +2,14 @@ import MovieGenre from '../MovieGenre/MovieGenre'
 import "./MovieGenres.css";
 
 type MovieGenresProps = {
-  genres: string[]
+  genresIds: number[]
 }
 
-function MovieGenres({ genres }: Readonly<MovieGenresProps>) {
+function MovieGenres({ genresIds }: Readonly<MovieGenresProps>) {
   return (
       <ul className='movie-genres'>
-        {genres.map((genre) => (
-         <MovieGenre key={genre} genre={genre} />
+        {genresIds.map((genreId) => (
+         <MovieGenre key={genreId} genreId={genreId} />
         ))}
       </ul>
      )

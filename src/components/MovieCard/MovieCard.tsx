@@ -11,8 +11,8 @@ function MovieCard({ movie }: Readonly<MovieCardProps>) {
   return (
     <div className="movie-card">
       <MovieImage
-        img={movie.img}
-        rating={movie.rating}
+        img={movie.poster_path}
+        rating={movie.vote_average}
         title={movie.title}
       />
       <MovieInfo movie={movie} />

@@ -12,9 +12,9 @@ function MovieInfo({ movie }: Readonly<MovieInfoProps>) {
   return (
     <div className="movie-info">
       <Heading text={movie.title} variant="h3" color="secondary" align="left"/>
-      <Heading text={movie.year.toString()} color="tertiary" variant="h4" align="left"/>
-      <MovieDescription description={movie.description}/>
-      <MovieGenres genres={movie.genres} />
+      <Heading text={movie.release_date} color="tertiary" variant="h4" align="left"/>
+      <MovieDescription description={movie.overview}/>
+      <MovieGenres genresIds={movie.genre_ids} />
     </div>
   );
 }
