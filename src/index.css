@@ -1,5 +1,8 @@
 :root {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.light-theme {
   --primary-color: white;
   --secondary-color: #333;
   --tertiary-color: #764ba2;
@@ -10,6 +13,19 @@
   --box-shadow-hover: 0 8px 30px rgba(118, 75, 162, 0.2);
   --heading-shadow: 0 2px 10px rgba(0,0,0,0.3); 
   --border-color: #e1e5e9;
+}
+
+.dark-theme {
+  --primary-color: #eee;
+  --secondary-color: #eeeeee;
+  --tertiary-color: #9c6ade;
+  --tertiary-color-hover: #764ba2;
+  --background-primary-gradient: linear-gradient(135deg, #3a3a75 0%, #5e3b8c 100%);
+  --background-secondary: rgba(40, 40, 40, 0.95);
+  --background-tertiary: rgba(156, 106, 222, 0.1);
+  --box-shadow-hover: 0 8px 30px rgba(156, 106, 222, 0.3);
+  --heading-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+  --border-color: #444;
 }
 
 a {
