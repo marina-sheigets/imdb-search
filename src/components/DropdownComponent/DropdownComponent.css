@@ -1,0 +1,21 @@
+.dropdown-component-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.dropdown-component-select {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 15px;
+    outline: none;
+    background: white;
+}
+
+.dropdown-component-label {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
