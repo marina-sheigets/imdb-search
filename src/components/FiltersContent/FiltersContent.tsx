@@ -2,24 +2,16 @@ import CheckboxComponent from "../CheckboxComponent/CheckboxComponent";
 import DropdownComponent from "../DropdownComponent/DropdownComponent";
 import InputComponent from "../InputComponent/InputComponent";
 import LanguageDropdown from "../LanguageDropdown/LanguageDropdown";
+import ReleaseYearInput from "../ReleaseYearInput/ReleaseYearInput";
 import "./FiltersContent.css";
 
 function FiltersContent() {
-  const currentYear = new Date().getFullYear();
   return (
     <div className="filters-content">
-     <LanguageDropdown/>
-     
-      <InputComponent
-        value={""}
-        onChange={() => {}}
-        label="Release Year"
-        placeholder={`e.g. ${currentYear}`}
-        type="number"
-        min={1900}
-        max={currentYear}
-      />
-      <InputComponent
+      <LanguageDropdown />
+      <ReleaseYearInput />
+
+      {/* <InputComponent
         value={""}
         onChange={() => {}}
         label="Year"
@@ -54,7 +46,7 @@ function FiltersContent() {
         value={true}
         text="Include Adult Content"
         onChange={() => {}}
-      />
+      /> */}
     </div>
   );
 }
