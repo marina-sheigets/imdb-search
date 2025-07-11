@@ -1,8 +1,13 @@
+import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { getMovies } from "../../redux/selectors/getMovies";
+import { fetchMovies } from "../../redux/thunks/fetchMovies";
+import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
 import "./PaginationComponent.css";
 
 function PaginationComponent() {
+  const dispatch = useAppDispatch();
+
   const { currentPage, totalPages } = useAppSelector(getMovies);
 
   const isFirstButtonDisabled = currentPage === 1;
@@ -25,7 +30,16 @@ function PaginationComponent() {
   };
 
   const fetchPage = (page: number) => {
-   
+    const params = new URLSearchParams(window.location.search);
+    params.set("page", page.toString());
+    window.history.pushState(
+      {},
+      "",
+      `${window.location.pathname}?${params.toString()}`
+    );
+
+    const { filters } = parseFiltersFromURL(params.toString());
+    dispatch(fetchMovies({ filters, page }));
   };
 
   const isOnePageOnly = totalPages === 1;

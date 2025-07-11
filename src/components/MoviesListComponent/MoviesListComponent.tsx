@@ -5,13 +5,14 @@ import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { fetchMovies } from "../../redux/thunks/fetchMovies";
 import { getMovies } from "../../redux/selectors/getMovies";
+import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
 
 function MoviesListComponent() {
   const dispatch = useAppDispatch();
   const { items: movies } = useAppSelector(getMovies);
 
   useEffect(() => {
-    dispatch(fetchMovies({ filters: {}, page: 3 }));
+    dispatch(fetchMovies(parseFiltersFromURL(window.location.search)));
   }, [dispatch]);
 
   return (
