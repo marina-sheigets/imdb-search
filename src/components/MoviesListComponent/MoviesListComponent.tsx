@@ -1,30 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MoviesListComponent.css";
-import type { Movie } from "../../types/Movie";
+import { useAppDispatch } from "../../hooks/useAppDispatch";
+import { useAppSelector } from "../../hooks/useAppSelector";
+import { fetchMovies } from "../../redux/thunks/fetchMovies";
+import { getMovies } from "../../redux/selectors/getMovies";
+
 function MoviesListComponent() {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [totalPages, setTotalPages] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  
-  useEffect(()=>{
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_APP_TMDB_API_KEY}`)
-    .then((response) => response.json())
-    .then((data) => {
-      setTotalPages(data.total_pages);
-      setMovies(data.results);
-      setLoading(false);
-      setCurrentPage(data.page);
-      setError(null);
-    })
-    .catch((error) => {
-      console.error("Error fetching movies:", error);
-      setError(error);
-      setLoading(false);
-    });
-  }, []);
+  const dispatch = useAppDispatch();
+  const { items: movies } = useAppSelector(getMovies);
+
+  useEffect(() => {
+    dispatch(fetchMovies({ filters: {}, page: 3 }));
+  }, [dispatch]);
 
   return (
     <div className="movies-list-component">

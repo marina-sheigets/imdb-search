@@ -1,0 +1,1 @@
+export type LoaderStatus = "idle" | "loading" | "succeeded" | "failed";
