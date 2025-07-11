@@ -6,14 +6,29 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import { fetchMovies } from "../../redux/thunks/fetchMovies";
 import { getMovies } from "../../redux/selectors/getMovies";
 import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
+import ErrorComponent from "../ErrorComponent/ErrorComponent";
+import EmptyResult from "../EmptyResult/EmptyResult";
+import Skeleton from "../Skeleton/Skeleton";
 
 function MoviesListComponent() {
   const dispatch = useAppDispatch();
-  const { items: movies } = useAppSelector(getMovies);
+  const { items: movies, error, totalResults, status } = useAppSelector(getMovies);
 
   useEffect(() => {
     dispatch(fetchMovies(parseFiltersFromURL(window.location.search)));
   }, [dispatch]);
+
+  if(status === "loading"){
+    return <Skeleton/>
+  }
+
+  if(error){
+    return <ErrorComponent error={error}/>
+  }
+
+  if(totalResults === 0){
+    return <EmptyResult/>
+  }
 
   return (
     <div className="movies-list-component">
