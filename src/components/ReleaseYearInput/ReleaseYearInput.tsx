@@ -14,7 +14,7 @@ function ReleaseYearInput() {
   const handleChangeReleaseYear = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedYear(e.target.value);
 
-    setUrlParam("release_date", e.target.value);
+    setUrlParam("primary_release_year", e.target.value);
     dispatch(fetchMovies(parseFiltersFromURL(window.location.search)));
   };
 
