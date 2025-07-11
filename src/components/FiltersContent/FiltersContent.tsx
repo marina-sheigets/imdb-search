@@ -1,17 +1,15 @@
 import CheckboxComponent from "../CheckboxComponent/CheckboxComponent";
 import DropdownComponent from "../DropdownComponent/DropdownComponent";
 import InputComponent from "../InputComponent/InputComponent";
+import LanguageDropdown from "../LanguageDropdown/LanguageDropdown";
 import "./FiltersContent.css";
 
 function FiltersContent() {
   const currentYear = new Date().getFullYear();
   return (
     <div className="filters-content">
-      <DropdownComponent
-        options={["English", "Spanish", "French"]} // get supported languages from API later
-        onChange={() => {}}
-        label="Language"
-      />
+     <LanguageDropdown/>
+     
       <InputComponent
         value={""}
         onChange={() => {}}
