@@ -18,10 +18,14 @@
     height: 80%;
     width: 50%;
     padding: 2rem;
-    background-color: var(--primary-color);
+    background-color: var(--background-secondary);
     gap: 1rem;
 }
 
 .popup-content img {
     max-height: 300px;
+}
+
+.popup-content .movie-image {
+    width: auto;
 }
