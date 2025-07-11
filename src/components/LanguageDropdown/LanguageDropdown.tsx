@@ -8,10 +8,12 @@ import type { Option } from "../../types/Option";
 import { setUrlParam } from "../../utils/setURLParam";
 import { fetchMovies } from "../../redux/thunks/fetchMovies";
 import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
+import { getURLParam } from "../../utils/getURLParam";
 
 function LanguageDropdown() {
   const dispatch = useAppDispatch();
   const { items } = useAppSelector(getSupportedLanguages);
+
   const [selectedLanguage, setSelectedLanguage] = useState("");
 
   const [options, setOptions] = useState<Option[]>([]);
@@ -26,6 +28,13 @@ function LanguageDropdown() {
   };
 
   const setInitialLanguage = () => {
+    const initialSelectedLanguage = getURLParam("original_language");
+
+    if (initialSelectedLanguage) {
+      setSelectedLanguage(initialSelectedLanguage);
+      return;
+    }
+
     const en = items.find((item) => item.iso_639_1 === "en");
 
     if (!en) {
