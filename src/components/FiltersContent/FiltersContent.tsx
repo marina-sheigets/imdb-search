@@ -1,3 +1,4 @@
+import CheckboxComponent from "../CheckboxComponent/CheckboxComponent";
 import DropdownComponent from "../DropdownComponent/DropdownComponent";
 import InputComponent from "../InputComponent/InputComponent";
 import "./FiltersContent.css";
@@ -49,6 +50,12 @@ function FiltersContent() {
         type="number"
         min={1}
         max={1000} // should be get from API later
+      />
+      <CheckboxComponent
+        label="Content Filter"
+        value={true}
+        text="Include Adult Content"
+        onChange={() => {}}
       />
     </div>
   );
