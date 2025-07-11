@@ -9,12 +9,15 @@ import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { getMovies } from "../../redux/selectors/getMovies";
 import SuggestionsList from "../SuggestionsList/SuggestionsList";
+import { getURLParam } from "../../utils/getURLParam";
+import { clearMovies } from "../../redux/slices/movieSlice";
 
 function SearchInputComponent() {
   const dispatch = useAppDispatch();
   const { items } = useAppSelector(getMovies);
 
-  const [query, setQuery] = useState("");
+  const initialQuery = getURLParam("query") || "";
+  const [query, setQuery] = useState(initialQuery);
   const debouncedQuery = useDebounce(query);
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -40,6 +43,11 @@ function SearchInputComponent() {
 
       const params = parseFiltersFromURL(window.location.search);
       dispatch(fetchMovies(params));
+    } else {
+      setQuery("");
+      setSuggestions([]);
+      setUrlParam("query", null);
+      dispatch(clearMovies());
     }
   }, [debouncedQuery]);
 

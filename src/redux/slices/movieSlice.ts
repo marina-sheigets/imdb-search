@@ -1,4 +1,4 @@
-import {  createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import type { Movie } from "../../types/Movie";
 import type { LoaderStatus } from "../../types/LoaderStatus";
 import { fetchMovies } from "../thunks/fetchMovies";
@@ -26,7 +26,14 @@ const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    
+    clearMovies: (state) => {
+      state.items = [];
+      state.error = null;
+      state.status = "idle";
+      state.currentPage = 1;
+      state.totalPages = 0;
+      state.totalResults = 0;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -47,5 +54,7 @@ const movieSlice = createSlice({
       });
   },
 });
+
+export const { clearMovies } = movieSlice.actions;
 
 export default movieSlice.reducer;
