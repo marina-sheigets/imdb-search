@@ -1,0 +1,8 @@
+.movie-genre {
+    background: var(--background-tertiary);
+    color: var(--tertiary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
