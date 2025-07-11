@@ -8,7 +8,7 @@ import "./PaginationComponent.css";
 function PaginationComponent() {
   const dispatch = useAppDispatch();
 
-  const { currentPage, totalPages, totalResults  } = useAppSelector(getMovies);
+  const { currentPage, totalPages, totalResults, error  } = useAppSelector(getMovies);
 
   const isFirstButtonDisabled = currentPage === 1;
   const isLastButtonDisabled = currentPage === totalPages;
@@ -44,7 +44,7 @@ function PaginationComponent() {
 
   const isOnePageOnly = totalPages === 1;
 
-  if(totalResults === 0){
+  if(totalResults === 0 || error){
     return null;
   }
 
