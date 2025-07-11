@@ -3,6 +3,7 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import { getMovies } from "../../redux/selectors/getMovies";
 import { fetchMovies } from "../../redux/thunks/fetchMovies";
 import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
+import { setUrlParam } from "../../utils/setURLParam";
 import "./PaginationComponent.css";
 
 function PaginationComponent() {
@@ -30,15 +31,9 @@ function PaginationComponent() {
   };
 
   const fetchPage = (page: number) => {
-    const params = new URLSearchParams(window.location.search);
-    params.set("page", page.toString());
-    window.history.pushState(
-      {},
-      "",
-      `${window.location.pathname}?${params.toString()}`
-    );
+    setUrlParam("page", page.toString());
 
-    const { filters } = parseFiltersFromURL(params.toString());
+    const { filters } = parseFiltersFromURL(window.location.search);
     dispatch(fetchMovies({ filters, page }));
   };
 

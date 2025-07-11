@@ -2,8 +2,13 @@ import { useEffect, useState } from "react";
 import useDebounce from "../../hooks/useDebounce";
 import InputComponent from "../InputComponent/InputComponent";
 import "./SearchInputComponent.css";
+import { setUrlParam } from "../../utils/setURLParam";
+import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
+import { fetchMovies } from "../../redux/thunks/fetchMovies";
+import { useAppDispatch } from "../../hooks/useAppDispatch";
 
 function SearchInputComponent() {
+    const dispatch = useAppDispatch();
     const [query, setQuery] = useState("");
     const debouncedQuery = useDebounce(query);
 
@@ -17,7 +22,10 @@ function SearchInputComponent() {
 
     useEffect(()=>{
         if(isQueryValid()) {
-           //...fetchMovies(debouncedQuery);
+           setUrlParam("query", query);
+
+           const params = parseFiltersFromURL(window.location.search);
+           dispatch(fetchMovies(params));
         }
 
     }, [debouncedQuery]);
