@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import movieReducer from './slices/movieSlice';
 import supportedLanguagesReducer from './slices/supportedLanguagesSlice';
+import supportedRegionsReducer from './slices/supportedRegionsSlice';
 
 export const store = configureStore({
   reducer: {
     movies: movieReducer,
-    supportedLanguages: supportedLanguagesReducer
+    supportedLanguages: supportedLanguagesReducer,
+    supportedRegions: supportedRegionsReducer
   },
 });
 
