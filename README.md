@@ -1,3 +1,4 @@
+## Deployed Project - [Link](https://imdb-search-three.vercel.app/)
 # 🎬 TMDB Movie Search
 
 A modern React application for searching movies using The Movie Database (TMDB) API. Built with React, TypeScript, and Vite.
