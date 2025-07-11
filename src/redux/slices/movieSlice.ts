@@ -7,6 +7,7 @@ interface InitialState {
   items: Movie[];
   currentPage: number;
   totalPages: number;
+  totalResults: number,
   status: LoaderStatus;
   error: string | null;
 }
@@ -15,6 +16,7 @@ const initialState: InitialState = {
   items: [],
   currentPage: 1,
   totalPages: 1,
+  totalResults: 0,
   status: "idle",
   error: null,
 };
@@ -37,6 +39,7 @@ const movieSlice = createSlice({
         state.items = action.payload.results;
         state.currentPage = action.payload.page;
         state.totalPages = action.payload.total_pages;
+        state.totalResults = action.payload.total_results;
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.status = "failed";
