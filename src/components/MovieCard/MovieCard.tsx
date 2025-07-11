@@ -1,15 +1,16 @@
-import type { Movie } from '../../types/Movie'
-import MovieImage from '../MovieImage/MovieImage'
-import MovieInfo from '../MovieInfo/MovieInfo'
+import type { Movie } from "../../types/Movie";
+import MovieImage from "../MovieImage/MovieImage";
+import MovieInfo from "../MovieInfo/MovieInfo";
 import "./MovieCard.css";
 
 type MovieCardProps = {
-    movie: Movie
-}
+  movie: Movie;
+  onClick: (movie: Movie) => void;
+};
 
-function MovieCard({ movie }: Readonly<MovieCardProps>) {
+function MovieCard({ movie, onClick }: Readonly<MovieCardProps>) {
   return (
-    <div className="movie-card">
+    <div className="movie-card" onClick={() => onClick(movie)}>
       <MovieImage
         img={movie.poster_path}
         rating={movie.vote_average}
@@ -17,7 +18,7 @@ function MovieCard({ movie }: Readonly<MovieCardProps>) {
       />
       <MovieInfo movie={movie} />
     </div>
-  )
+  );
 }
 
-export default MovieCard
+export default MovieCard;
