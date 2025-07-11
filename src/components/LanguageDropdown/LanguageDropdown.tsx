@@ -12,13 +12,27 @@ import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
 function LanguageDropdown() {
   const dispatch = useAppDispatch();
   const { items } = useAppSelector(getSupportedLanguages);
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+
   const [options, setOptions] = useState<Option[]>([]);
 
   const handleChangeSupportedLanguage = (
     e: React.ChangeEvent<HTMLSelectElement>
   ) => {
+    setSelectedLanguage(e.target.value);
+
     setUrlParam("original_language", e.target.value);
     dispatch(fetchMovies(parseFiltersFromURL(window.location.search)));
+  };
+
+  const setInitialLanguage = () => {
+    const en = items.find((item) => item.iso_639_1 === "en");
+
+    if (!en) {
+      return;
+    }
+
+    setSelectedLanguage(en.iso_639_1);
   };
 
   useEffect(() => {
@@ -29,6 +43,8 @@ function LanguageDropdown() {
       }));
 
       setOptions(mappedOptions);
+
+      setInitialLanguage();
     }
   }, [items]);
 
@@ -38,6 +54,7 @@ function LanguageDropdown() {
 
   return (
     <DropdownComponent
+      value={selectedLanguage}
       options={options}
       onChange={handleChangeSupportedLanguage}
       label="Language"

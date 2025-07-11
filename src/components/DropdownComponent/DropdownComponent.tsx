@@ -3,12 +3,14 @@ import "./DropdownComponent.css";
 import type { Option } from "../../types/Option";
 
 type DropdownComponentProps = {
+  value: string;
   options: Option[];
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   label: string;
 };
 
 function DropdownComponent({
+  value,
   options,
   onChange,
   label,
@@ -16,7 +18,11 @@ function DropdownComponent({
   return (
     <div className="dropdown-component-wrapper">
       <label className="dropdown-component-label">{label}</label>
-      <select className="dropdown-component-select" onChange={onChange}>
+      <select
+        value={value}
+        className="dropdown-component-select"
+        onChange={onChange}
+      >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
