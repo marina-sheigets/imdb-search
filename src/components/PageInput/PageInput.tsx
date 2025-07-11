@@ -6,11 +6,14 @@ import { setUrlParam } from "../../utils/setURLParam";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { fetchMovies } from "../../redux/thunks/fetchMovies";
 import { parseFiltersFromURL } from "../../utils/parseFiltersFromURL";
+import { getURLParam } from "../../utils/getURLParam";
 
 function PageInput() {
   const dispatch = useAppDispatch();
   const { totalPages } = useAppSelector(getMovies);
-  const [selectedPage, setSelectedPage] = useState("1");
+
+  const initialPage = getURLParam("page") || "1";
+  const [selectedPage, setSelectedPage] = useState(initialPage);
 
   const handleChangePage = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedPage(e.target.value);
