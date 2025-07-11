@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ButtonComponent from "../ButtonComponent/ButtonComponent"
 import "./SearchOptionsComponent.css";
+import FiltersContent from "../FiltersContent/FiltersContent";
 
 function SearchOptionsComponent() {
   const [isAdvancedSearchVisible, setIsAdvancedSearchVisible] = useState(false);
@@ -20,8 +21,7 @@ function SearchOptionsComponent() {
       }
       {
         isAdvancedSearchVisible ? (
-          <div>Filters</div>
-         // <FiltersContent />
+         <FiltersContent />
         ) : null
       }
     </div>

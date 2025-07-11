@@ -1,5 +1,11 @@
-.input-component {
+.input-component-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     width: 100%;
+}
+
+.input-component {
     padding: 1rem 1.5rem;
     font-size: 1.1rem;
     border: 2px solid #e1e5e9;
@@ -7,5 +13,10 @@
     outline: none;
     transition: all 0.3s ease;
     background: white;
-    position: relative;
+}
+
+.input-label {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: 600;
 }
