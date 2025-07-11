@@ -10,7 +10,7 @@ type MovieImageProps = {
 function MovieImage({ img, title, rating }: Readonly<MovieImageProps>) {
   return (
     <div className="movie-image">
-      <img src={`https://image.tmdb.org/t/p/w500${img}`} alt={title}/>
+      <img src={`https://image.tmdb.org/t/p/w500${img}`} alt={title} loading="lazy"/>
       <RatingChip rating={rating} />
     </div>
   )
