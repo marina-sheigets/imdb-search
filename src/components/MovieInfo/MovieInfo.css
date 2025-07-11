@@ -1,0 +1,8 @@
+.movie-info {
+    background: var(--background-secondary);
+    padding: 1.5rem;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
