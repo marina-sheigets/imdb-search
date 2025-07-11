@@ -1,4 +1,5 @@
 import CheckboxComponent from "../CheckboxComponent/CheckboxComponent";
+import ContentFilterCheckbox from "../ContentFilterCheckbox/ContentFilterCheckbox";
 import DropdownComponent from "../DropdownComponent/DropdownComponent";
 import InputComponent from "../InputComponent/InputComponent";
 import LanguageDropdown from "../LanguageDropdown/LanguageDropdown";
@@ -14,6 +15,7 @@ function FiltersContent() {
       <ReleaseYearInput />
       <YearInput />
       <PageInput />
+      <ContentFilterCheckbox />
       {/*
       <DropdownComponent
         options={[
@@ -27,21 +29,8 @@ function FiltersContent() {
         onChange={() => {}}
         label="Region"
       />
-      <InputComponent
-        value={""}
-        onChange={() => {}}
-        label="Page"
-        placeholder={`e.g. ${currentYear}`}
-        type="number"
-        min={1}
-        max={1000} // should be get from API later
-      />
-      <CheckboxComponent
-        label="Content Filter"
-        value={true}
-        text="Include Adult Content"
-        onChange={() => {}}
-      /> */}
+   
+    */}
     </div>
   );
 }
